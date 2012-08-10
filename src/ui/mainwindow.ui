@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>491</width>
+    <height>378</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QWinFF</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../images.qrc">
+    <normaloff>:/app/icons/qwinff_small.png</normaloff>:/app/icons/qwinff_small.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout"/>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>491</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionAddFiles"/>
+    <addaction name="actionOptions"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuConvert">
+    <property name="title">
+     <string>&amp;Convert</string>
+    </property>
+    <addaction name="actionStartConversion"/>
+    <addaction name="actionStopConversion"/>
+    <addaction name="separator"/>
+    <addaction name="actionRetry"/>
+    <addaction name="actionRetryAll"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>&amp;About</string>
+    </property>
+    <addaction name="actionAboutQt"/>
+    <addaction name="actionAboutFFmpeg"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionRemoveSelectedItems"/>
+    <addaction name="actionRemoveCompletedItems"/>
+    <addaction name="actionClearList"/>
+    <addaction name="separator"/>
+    <addaction name="actionOpenOutputFolder"/>
+    <addaction name="actionSetParameters"/>
+    <addaction name="actionChangeOutputFilename"/>
+    <addaction name="actionChangeOutputDirectory"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuConvert"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <action name="actionAddFiles">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/add.png</normaloff>:/actions/icons/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Add Files</string>
+   </property>
+   <property name="statusTip">
+    <string>Add files for conversion.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/exit.png</normaloff>:/actions/icons/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit the program.</string>
+   </property>
+  </action>
+  <action name="actionStartConversion">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/start.png</normaloff>:/actions/icons/start.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Start</string>
+   </property>
+   <property name="statusTip">
+    <string>Start conversion process.</string>
+   </property>
+   <property name="shortcut">
+    <string>F9</string>
+   </property>
+  </action>
+  <action name="actionStopConversion">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/stop.png</normaloff>:/actions/icons/stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>S&amp;top</string>
+   </property>
+   <property name="statusTip">
+    <string>Stop conversion process.</string>
+   </property>
+  </action>
+  <action name="actionSetParameters">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/settings.png</normaloff>:/actions/icons/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Set &amp;Parameters</string>
+   </property>
+   <property name="iconText">
+    <string extracomment="Edit output file parameters.">Set Parameters</string>
+   </property>
+   <property name="statusTip">
+    <string>Edit conversion parameters of selected files.</string>
+   </property>
+  </action>
+  <action name="actionAboutQt">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/app/icons/qt.png</normaloff>:/app/icons/qt.png</iconset>
+   </property>
+   <property name="text">
+    <string>About &amp;Qt</string>
+   </property>
+   <property name="statusTip">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionOpenOutputFolder">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/open_folder.png</normaloff>:/actions/icons/open_folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open Output Folder</string>
+   </property>
+   <property name="statusTip">
+    <string>Open output folder of the first selected file.</string>
+   </property>
+  </action>
+  <action name="actionAboutFFmpeg">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/app/icons/ffmpeg.png</normaloff>:/app/icons/ffmpeg.png</iconset>
+   </property>
+   <property name="text">
+    <string>About &amp;FFmpeg</string>
+   </property>
+   <property name="statusTip">
+    <string>About FFmpeg</string>
+   </property>
+  </action>
+  <action name="actionRemoveSelectedItems">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/remove.png</normaloff>:/actions/icons/remove.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Remove Selected Items</string>
+   </property>
+   <property name="statusTip">
+    <string>Remove all selected items in the list.</string>
+   </property>
+  </action>
+  <action name="actionRemoveCompletedItems">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/remove_completed.png</normaloff>:/actions/icons/remove_completed.png</iconset>
+   </property>
+   <property name="text">
+    <string>R&amp;emove Completed Items</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove Completed Items</string>
+   </property>
+   <property name="statusTip">
+    <string>Remove all completed items in the list.</string>
+   </property>
+  </action>
+  <action name="actionClearList">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/clear.png</normaloff>:/actions/icons/clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Clear List</string>
+   </property>
+   <property name="toolTip">
+    <string>Clear List</string>
+   </property>
+   <property name="statusTip">
+    <string>Remove all items in the list.</string>
+   </property>
+  </action>
+  <action name="actionRetry">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/retry.png</normaloff>:/actions/icons/retry.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Retry</string>
+   </property>
+   <property name="toolTip">
+    <string>Retry</string>
+   </property>
+   <property name="statusTip">
+    <string>Retry selected tasks.</string>
+   </property>
+  </action>
+  <action name="actionRetryAll">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/retry_all.png</normaloff>:/actions/icons/retry_all.png</iconset>
+   </property>
+   <property name="text">
+    <string>Retry &amp;All</string>
+   </property>
+   <property name="statusTip">
+    <string>Retry all tasks.</string>
+   </property>
+  </action>
+  <action name="actionOptions">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/actions/icons/configure.png</normaloff>:/actions/icons/configure.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Options</string>
+   </property>
+   <property name="statusTip">
+    <string>Options</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/app/icons/qwinff.png</normaloff>:/app/icons/qwinff.png</iconset>
+   </property>
+   <property name="text">
+    <string>About Q&amp;WinFF</string>
+   </property>
+   <property name="statusTip">
+    <string>About This Program</string>
+   </property>
+  </action>
+  <action name="actionChangeOutputFilename">
+   <property name="text">
+    <string>Change Output &amp;Filename</string>
+   </property>
+   <property name="statusTip">
+    <string>Change the output filename of the selected item.</string>
+   </property>
+  </action>
+  <action name="actionChangeOutputDirectory">
+   <property name="text">
+    <string>Change Output &amp;Directory</string>
+   </property>
+   <property name="statusTip">
+    <string>Change the output directory of the selected items.</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../images.qrc"/>
+ </resources>
+ <connections/>
+</ui>
