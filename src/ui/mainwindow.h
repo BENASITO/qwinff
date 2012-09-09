@@ -1,0 +1,98 @@
+/*  This file is part of QWinFF, a media converter GUI.
+
+    QWinFF is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 or 3 of the License.
+
+    QWinFF is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with QWinFF.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QTime>
+
+class ConvertList;
+
+namespace Ui {
+    class MainWindow;
+}
+
+class Presets;
+class QLabel;
+class QToolButton;
+class QActionGroup;
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    /*! Construct the main window
+     *  @param parent the parent of the QObject
+     *  @param fileList the input files from argv
+     */
+    explicit MainWindow(QWidget *parent = 0, const QStringList& fileList = QStringList());
+    ~MainWindow();
+
+private slots:
+    void window_ready(); //!< The main window is completely loaded.
+    void task_finished(int);
+    void all_tasks_finished();
+
+    // Menu Events
+    void slotAddFiles();
+    void slotOptions();
+    void slotExit();
+    void slotStartConversion();
+    void slotStopConversion();
+    void slotSetConversionParameters();
+    void slotOpenOutputFolder();
+    void slotAboutQt();
+    void slotAboutFFmpeg();
+    void slotAbout();
+
+    void slotListContextMenu(QPoint);
+
+    void refresh_action_states();
+    void timerEvent(); ///< 1-second timer event
+    void conversion_started();
+    void conversion_stopped();
+
+    void update_poweroff_button(int);
+
+protected:
+    void closeEvent(QCloseEvent *);
+
+private:
+    Ui::MainWindow *ui;
+    Presets *m_presets; //!< the preset loader that lives throughout the program
+    ConvertList *m_list;
+    const QStringList m_argv_input_files;
+    QLabel *m_elapsedTimeLabel;
+    QTimer *m_timer;
+    QToolButton *m_poweroff_button;
+    QActionGroup *m_poweroff_actiongroup;
+    bool check_execute_conditions();
+    void add_files();
+    void add_files(const QStringList& files);
+    void setup_menus();
+    void setup_toolbar();
+    void setup_statusbar();
+    void setup_poweroff_button();
+    void setup_appicon();
+    void set_poweroff_behavior(int);
+    int get_poweroff_behavior();
+    bool load_presets();
+    void load_settings();
+    void save_settings();
+};
+
+#endif // MAINWINDOW_H
