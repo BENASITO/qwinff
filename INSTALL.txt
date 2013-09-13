@@ -1,6 +1,12 @@
 This document explains how to build and install QWinFF.
 
-QWinFF needs ffmpeg and ffprobe at runtime.
+QWinFF depends on several external programs at runtime. Currently these
+programs are:
+
+  - ffmpeg (required)
+  - ffprobe (required)
+  - ffplay (optional, for previewing audio/video cutting)
+  - sox (optional, for adjusting audio speed)
 
 1) Generic Compilation and Installation on Unix-like Systems
 2) Changing Installation Path
@@ -22,12 +28,12 @@ Type "make".
 If everything is ok, you may type "make install" to install it.
 This will install QWinFF in /usr/local.
 
-If "make" fails, it's probably because the Qt3 qmake is used instead of
+If "make" fails, it's probably because the Qt3 toolchain is used instead of
 the Qt4 one.
 Try to type something like this (just examples):
-make QMAKE=qmake-qt4
+make QMAKE=qmake-qt4 LRELEASE=lrelease-qt4
 or
-make QMAKE=/usr/share/qt4/bin/qmake
+make QMAKE=/usr/share/qt4/bin/qmake LRELEASE=/usr/share/qt4/bin/lrelease
 
 ------------------------------
 
@@ -95,12 +101,8 @@ If you are using the official QtSDK, the DLLs are probably QtCore4.dll,
 QtGui4.dll, libgcc_s_dw2-1.dll, libstdc++-6.dll and mingwm10.dll.
 These files can be found in <QtSDK>\Desktop\Qt\4.x.x\mingw\bin.
 
-QWinFF depends on several external programs. Currently these programs are:
-  - ffmpeg (required)
-  - ffprobe (required)
-  - ffplay or mplayer (optional, for previewing audio/video cutting)
-  - sox (optional, for scaling audio length)
-Download the executables and put them under windows_release\tools.
+Download runtime dependencies (ffmpeg.exe, ffprobe.exe, etc.) and placed them
+in windows_release\tools.
 
 Now you can execute QWinFF by clicking on the executable file.
 
