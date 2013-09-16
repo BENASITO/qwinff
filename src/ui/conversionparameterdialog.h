@@ -24,6 +24,7 @@ namespace Ui {
 }
 
 class RangeSelector;
+class TimeRangeEdit;
 class AbstractPreviewer;
 
 class ConversionParameterDialog : public QDialog
@@ -45,12 +46,8 @@ public:
     bool exec(ConversionParameters& param, bool single_file=false);
 
 private slots:
-    void update_endtime();
-    void sync_time_view_to_text();
-    void sync_time_text_to_view();
-    void from_begin_toggled(bool);
-    void to_end_toggled(bool);
     void preview_time_selection();
+    void interactive_cutting();
     AbstractPreviewer *create_previewer();
 
 private:
@@ -59,7 +56,8 @@ private:
     void write_fields(ConversionParameters& param);
     bool m_enableAudioProcessing;
     bool m_singleFile;
-    RangeSelector *m_selTime;
+    TimeRangeEdit *m_timeEdit;
+    RangeSelector *m_rangeSel;
     ConversionParameters *m_param;
     AbstractPreviewer *m_previewer;
 };
