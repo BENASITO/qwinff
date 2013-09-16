@@ -619,7 +619,7 @@
   <!-- Flash Video -->
   <flvauto>
     <label>Flash Video (flv) Auto</label>
-    <params></params>
+    <params>-vcodec flv</params>
     <extension>flv</extension>
     <category>Websites</category>
   </flvauto>
@@ -833,7 +833,7 @@
   <!-- ASF -->
   <asfAuto>
     <label>Active Streaming Format - Auto</label>
-    <params></params>
+    <params>-vcodec msmpeg4</params>
     <extension>asf</extension>
     <category>Websites</category>
   </asfAuto>
@@ -841,7 +841,7 @@
   <!-- ShockWave Flash -->
   <swfauto>
     <label>ShockWave Flash (swf) - Auto</label>
-    <params></params>
+    <params>-vcodec flv</params>
     <extension>swf</extension>
     <category>Websites</category>
   </swfauto>
@@ -887,7 +887,7 @@
   <!-- MP2 -->
   <mp2Auto>
     <label>MPEG-1 Audio Layer II  - Auto</label>
-    <params>-vn</params>
+    <params>-acodec mp2 -vn</params>
     <extension>mp2</extension>
     <category>Audio</category>
   </mp2Auto>
